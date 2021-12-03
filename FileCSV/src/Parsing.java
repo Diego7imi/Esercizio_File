@@ -48,5 +48,4 @@ public class Parsing {
 		System.out.println("Vector:"+companyResult);
 		System.out.println("");
 	}
-
 }
