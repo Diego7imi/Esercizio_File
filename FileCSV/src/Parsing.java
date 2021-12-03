@@ -9,7 +9,7 @@ public class Parsing {
 	
 	public static void main(String[] args) 
 	{
-		String fileToParse = "employee.csv";
+		String fileToParse = "C:\\Users\\Diego\\git\\Esercizio_File\\FileCSV\\src\\employee.csv";
 		BufferedReader fileReader = null;
 		
 		try 
