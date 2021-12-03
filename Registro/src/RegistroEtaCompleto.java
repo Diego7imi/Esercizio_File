@@ -1,24 +1,26 @@
 import java.util.Vector;
+import java.io.*;
 public class RegistroEtaCompleto {
 	
-	Vector<NomeEta> studenti = new Vector<NomeEta>();
+	private String nomefile;
+	private Vector<NomeEta> studenti = new Vector<NomeEta>();
 	
-	public RegistroEtaCompleto(Vector<NomeEta> studente)
+	public RegistroEtaCompleto(String nomefile)
 	{
-		this.studenti = studente;
-	}
-	
-	
-	public boolean AggiungiStudente(String nome, int eta)
-	{
-		
-		return true;
-	}
-	
-	public void VisualizzaRegistro()
-	{
-		System.out.println("Registro\n");
-		for(NomeEta n : studenti)
-			System.out.println("Nome: " + n.nome + " Età: " + n.eta);
+		this.nomefile = nomefile;
+		try {
+			ObjectInputStream file = new ObjectInputStream(new BufferedInputStream(new FileInputStream(nomefile)));
+			studenti = (Vector<NomeEta>) file.readObject();
+			file.close();
+		}catch(FileNotFoundException e)
+		{
+			
+		}catch(ClassNotFoundException e)
+		{
+			
+		}catch(IOException e)
+		{
+			
+		}
 	}
 }
