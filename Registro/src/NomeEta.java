@@ -1,14 +1,22 @@
 
 public class NomeEta {
 	
-	String nome;
-	int eta;
+	private String nome;
+	private int eta;
 	
-	public NomeEta(String nome, int eta)
+	NomeEta(String nome, int eta)
 	{
 		this.nome = nome;
 		this.eta = eta;
 	}
 	
-	public void setEta(int eta) {eta = this.eta + 1;}
+	public String getNome() {return nome;}
+	public int getEta() {return eta;}
+	
+	public void IncrementaEta() {eta++;}
+	
+	public String toString()
+	{
+		return "Nome: " + nome + " " + eta + "anni";
+	}
 }
