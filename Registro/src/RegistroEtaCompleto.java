@@ -4,6 +4,7 @@ public class RegistroEtaCompleto {
 	
 	private String nomefile;
 	private Vector<NomeEta> studenti = new Vector<NomeEta>();
+	private boolean modificato = false;
 	
 	public RegistroEtaCompleto(String nomefile)
 	{
@@ -27,4 +28,31 @@ public class RegistroEtaCompleto {
 			System.out.println(e);
 		}
 	}
+	
+	public void visualizza()
+	{
+		System.out.println();
+		if(studenti.isEmpty())
+			System.out.println("Il registro e' vuoto!");
+		else
+		{
+			System.out.println("REGISTRO DELLE ETA'");
+			for(NomeEta ne : studenti)
+				System.out.println(ne);
+		}
+	}
+	
+	public void inserisci(String nome, int eta)
+	{
+		NomeEta ne = new NomeEta(nome, eta);
+		if(studenti.contains(ne))
+			System.out.println(nome + " già presente");
+		else
+		{
+			studenti.add(ne);
+			modificato = true;
+		}
+	}
+	
+	
 }
