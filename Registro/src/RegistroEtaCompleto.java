@@ -54,5 +54,41 @@ public class RegistroEtaCompleto {
 		}
 	}
 	
+	public int incrementaEta(String nome)
+	{
+		for(NomeEta ne : studenti)
+			if(ne.getNome().equals(nome))
+			{
+				ne.IncrementaEta();
+				modificato = true;
+				return ne.getEta();
+			}
+		return -1;
+	}
 	
+	public boolean daSalvare()
+	{
+		return modificato;
+	}
+	
+	public boolean salva()
+	{
+		if(daSalvare())
+		{
+			try
+			{
+				ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)));
+				out.writeObject(studenti);
+				out.close();
+				modificato = false;
+				return true;
+			} catch (IOException e)
+			{
+				System.out.println("ERRORE di I/O");
+				System.out.println(e);
+				return false;
+			}
+		}
+		else return false;
+	}
 }
